@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+
+    {% if produtos %}
+        <ul>
+            {% for produto in produtos %}
+                <li>
+                    <strong>{{ produto.nome }}</strong>
+                    - R$ {{ produto.preco }}
+                    <a href="{% url 'produtos:detalhes_produto' produto.UUID %}">Ver detalhes</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum produto cadastrado.</p>
+    {% endif %}
+
+    <a href="{% url 'home' %}">
+        Voltar
+    </a>
+</body>
+</html>

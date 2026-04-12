@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes</title>
+</head>
+<body>
+    <h1>Detalhes do Produto</h1>
+
+    <h2>{{ produto.nome }}</h2>
+    <p><strong>ID:</strong> {{ produto.UUID }}</p>
+    <p><strong>Preco:</strong> R$ {{ produto.preco }}</p>
+    <p><strong>Descricao:</strong> {{ produto.descricao }}</p>
+
+    <a href="{% url 'produtos:lista_produtos' %}">
+        Voltar
+    </a>
+</body>
+</html>
