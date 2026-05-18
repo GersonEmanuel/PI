@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Itens</title>
+    <link rel="stylesheet" href="{% static 'filmes/css/filme_lista.css' %}">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Header Superior -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle">☰</button>
+                <h1 class="logo">Sistema de Catálogo</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span class="user-name">Usuário</span>
+                    <div class="user-avatar">👤</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Menu Lateral -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="{% url 'home' %}" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="{% url 'filmes:filme_lista' %}" class="nav-item active">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Lista de Filmes</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">➕</span>
+                    <span class="nav-text">Adicionar Novo</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Relatórios</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Configurações</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="breadcrumb">
+                    <a href="#">Início</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">Lista de Filmes</span>
+                </div>
+                <h2 class="page-title">Lista de Filmes</h2>
+            </div>
+
+            <div class="list-controls">
+                <div class="search-box-container">
+                    <input type="text" class="search-box" placeholder="🔍 Buscar filmes...">
+                </div>
+                <button class="btn btn-primary btn-add">
+                    <span class="btn-icon">➕</span>
+                    Adicionar Novo
+                </button>
+            </div>
+
+            <div class="items-container">
+                <!-- Os alunos devem usar um loop para exibir os itens aqui -->
+                <!-- Exemplo de estrutura de um item: -->
+                <div class="item-card">
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3 class="item-title">The End of Evangelion</h3>
+                            <span class="item-badge">Categoria</span>
+                        </div>
+                        <p class="item-description">Detalhes do filme aqui</p>
+                        <div class="item-meta">
+                            <span class="meta-item">📅 Data</span>
+                            <span class="meta-item">👤 Autor</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <a href="#" class="btn-action btn-view" title="Ver detalhes">
+                            <span>👁️</span>
+                        </a>
+                        <a href="#" class="btn-action btn-edit" title="Editar">
+                            <span>✏️</span>
+                        </a>
+                    </div>
+                </div>
+
+                 <div class="item-card">
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3 class="item-title">Vivre Sa Vie</h3>
+                            <span class="item-badge">Categoria</span>
+                        </div>
+                        <p class="item-description">Detalhes do filme aqui</p>
+                        <div class="item-meta">
+                            <span class="meta-item">📅 Data</span>
+                            <span class="meta-item">👤 Autor</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <a href="#" class="btn-action btn-view" title="Ver detalhes">
+                            <span>👁️</span>
+                        </a>
+                        <a href="#" class="btn-action btn-edit" title="Editar">
+                            <span>✏️</span>
+                        </a>
+                    </div>
+                </div>
+
+                 <div class="item-card">
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3 class="item-title">Whiplash</h3>
+                            <span class="item-badge">Categoria</span>
+                        </div>
+                        <p class="item-description">Detalhes do filme aqui</p>
+                        <div class="item-meta">
+                            <span class="meta-item">📅 Data</span>
+                            <span class="meta-item">👤 Autor</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <a href="#" class="btn-action btn-view" title="Ver detalhes">
+                            <span>👁️</span>
+                        </a>
+                        <a href="#" class="btn-action btn-edit" title="Editar">
+                            <span>✏️</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mais itens devem ser gerados dinamicamente com loop -->
+            </div>
+        </main>
+    </div>
+</body>
+</html>
