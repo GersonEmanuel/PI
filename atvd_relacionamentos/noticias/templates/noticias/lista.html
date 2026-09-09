@@ -1,0 +1,14 @@
+{% extends 'noticias/base.html' %}
+
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<h1>{{ titulo }}</h1>
+<ul>
+    {% for objeto in objetos %}
+        <li><a href="{{ objeto.get_absolute_url }}">{{ objeto }}</a></li>
+    {% empty %}
+        <li>Nenhum registro cadastrado.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

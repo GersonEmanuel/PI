@@ -1,0 +1,41 @@
+{% extends 'noticias/base.html' %}
+
+{% block title %}{{ objeto }}{% endblock %}
+
+{% block content %}
+<h1>{{ objeto }}</h1>
+{% if objeto.texto %}
+    <p>{{ objeto.texto|linebreaksbr }}</p>
+{% endif %}
+{% if objeto.nome %}
+    <p>Nome: {{ objeto.nome }}</p>
+    <h2>Notícias</h2>
+    <ul>
+        {% for noticia in objeto.noticias.all %}
+            <li><a href="{{ noticia.get_absolute_url }}">{{ noticia.titulo }}</a></li>
+        {% empty %}
+            <li>Nenhuma notícia vinculada.</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% if objeto.titulo and not objeto.texto %}
+    <p>Notícias com esta tag:</p>
+    <ul>
+        {% for noticia in objeto.noticias.all %}
+            <li><a href="{{ noticia.get_absolute_url }}">{{ noticia.titulo }}</a></li>
+        {% empty %}
+            <li>Nenhuma notícia vinculada.</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% if objeto.categoria %}
+    <p>Categoria: <a href="{{ objeto.categoria.get_absolute_url }}">{{ objeto.categoria }}</a></p>
+    <p>Tags:
+        {% for tag in objeto.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+        {% empty %}
+            nenhuma
+        {% endfor %}
+    </p>
+{% endif %}
+{% endblock %}

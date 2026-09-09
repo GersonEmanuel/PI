@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Notícias{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'noticia-lista' %}">Notícias</a> |
+        <a href="{% url 'categoria-lista' %}">Categorias</a> |
+        <a href="{% url 'tag-lista' %}">Tags</a> |
+        <a href="{% url 'admin:index' %}">Admin</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
